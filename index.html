@@ -519,7 +519,7 @@
         <div class="header">
             <h1>3D 手-物交互评分系统</h1>
             <p>评估四种手-物交互方法的性能表现<br>
-            样本范围: 0-176  | 随机抽取: 20个样本</p>
+            样本范围: 0-176  | 随机抽取: 50个样本</p>
         </div>
 
         <div class="progress-bar">
@@ -532,7 +532,7 @@
                 <div class="stat-label">当前进度</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number" id="totalSamples">20</div>
+                <div class="stat-number" id="totalSamples">50</div>
                 <div class="stat-label">总样本数</div>
             </div>
             <div class="stat-card">
@@ -663,7 +663,7 @@
         };
 
         // 生成随机样本ID
-        function generateRandomSamples(count = 20) {
+        function generateRandomSamples(count = 50) {
             const allIds = [];
             for (let i = 0; i <= 176; i++) {
                 allIds.push(i);
@@ -724,11 +724,11 @@
                 this.scene.add(ambientLight);
 
                 // 添加主光源
-                const directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);-->
-                directionalLight.position.set(-10, -10, 5);-->
-                directionalLight.castShadow = true;-->
-                directionalLight.shadow.mapSize.width = 2048;-->
-                directionalLight.shadow.mapSize.height = 2048;-->
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
+                directionalLight.position.set(-10, -10, 5);
+                directionalLight.castShadow = true;
+                directionalLight.shadow.mapSize.width = 2048;
+                directionalLight.shadow.mapSize.height = 2048;
                 this.scene.add(directionalLight);
 
                 // 添加补充光源
@@ -935,8 +935,7 @@
                 const group = new THREE.Group();
 
                 // 创建简化的手部模型
-                // const handMaterial = new THREE.MeshPhongMaterial({ color: 0xfdbcb4 });
-                // const handMaterial = new THREE.MeshPhongMaterial({ color: 0xffdbd0 });
+<!--                const handMaterial = new THREE.MeshPhongMaterial({ color: 0xfdbcb4 });-->
                 const handMaterial = new THREE.MeshPhongMaterial({ color: 0x1a237e });
 
                 // 手掌
@@ -972,8 +971,7 @@
 
                 // 镜头
                 const lensGeometry = new THREE.CylinderGeometry(0.08, 0.08, 0.1);
-                // const lensMaterial = new THREE.MeshPhongMaterial({ color: 0x333333 });
-                const lensMaterial = new THREE.MeshPhongMaterial({ color: 0x1a237e });
+                const lensMaterial = new THREE.MeshPhongMaterial({ color: 0x333333 });
                 const lens = new THREE.Mesh(lensGeometry, lensMaterial);
 
                 if (currentMode === 'hold') {
@@ -1012,7 +1010,7 @@
 
         // 初始化评估系统
         function initializeEvaluation() {
-            samples = generateRandomSamples(20);
+            samples = generateRandomSamples(50);
             currentSampleIndex = 0;
             evaluationResults = [];
             isEvaluationActive = false;
