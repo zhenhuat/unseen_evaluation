@@ -970,7 +970,8 @@
 
                 // 镜头
                 const lensGeometry = new THREE.CylinderGeometry(0.08, 0.08, 0.1);
-                const lensMaterial = new THREE.MeshPhongMaterial({ color: 0x333333 });
+                // const lensMaterial = new THREE.MeshPhongMaterial({ color: 0x333333 });
+                const lensMaterial = new THREE.MeshPhongMaterial({ color: 0x1a237e });
                 const lens = new THREE.Mesh(lensGeometry, lensMaterial);
 
                 if (currentMode === 'hold') {
