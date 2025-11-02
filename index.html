@@ -205,12 +205,12 @@
         }
 
         .method-card.sns,
-        .method-card.CsMr {
+        .method-card.CsMr_unseen {
             border-color: #f39c12;
         }
 
         .method-card.sns.selected,
-        .method-card.CsMr.selected {
+        .method-card.CsMr_unseen.selected {
             background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
         }
 
@@ -236,7 +236,7 @@
         }
 
         .method-card.sns .method-title,
-        .method-card.CsMr .method-title {
+        .method-card.CsMr_unseen .method-title {
             color: #f39c12;
         }
 
@@ -655,17 +655,17 @@
         let controls = {};
 
         // 方法配置
-        const methods = ['affordpose', 'grabnet', 'ragg', 'CsMr'];
+        const methods = ['affordpose', 'grabnet', 'ragg', 'CsMr_unseen'];
         const methodColors = {
             affordpose: '#e74c3c',
             grabnet: '#3498db',
             ragg: '#2ecc71',
-            CsMr: '#f39c12'
+            CsMr_unseen: '#f39c12'
         };
 
         // 目录映射（当方法名与磁盘目录不一致时使用）
         const dirMap = {
-            CsMr: 'sns'
+            CsMr_unseen: 'sns'
         };
 
         // 生成随机样本ID
@@ -932,7 +932,7 @@
                     this.scene.remove(this.currentModel);
                 }
                 
-                // 创建方法颜色（从全局 methodColors 中查找，支持 CsMr -> sns 映射）
+                // 创建方法颜色（从全局 methodColors 中查找，支持 CsMr_unseen -> sns 映射）
                 const colorHex = (typeof methodColors !== 'undefined' && methodColors[this.method]) ? methodColors[this.method] : '#888888';
                 let methodColor = parseInt(colorHex.replace('#', '0x'));
                 
