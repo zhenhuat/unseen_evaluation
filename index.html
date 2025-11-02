@@ -1107,8 +1107,9 @@
                 const viewerIdHold = `viewer-${method}-hold`;
                 const viewerIdUse = `viewer-${method}-use`;
                 const dir = (typeof dirMap !== 'undefined' && dirMap[method]) ? dirMap[method] : method;
-                const modelPathHold = `viz_mesh/${dir}/hold/sample_${sampleId}.obj`;
-                const modelPathUse = `viz_mesh/${dir}/use/sample_${sampleId}.obj`;
+                const paddedId = sampleId.toString().padStart(4, '0');
+                const modelPathHold = `viz_mesh/${dir}/hold/sample_${paddedId}.obj`;
+                const modelPathUse = `viz_mesh/${dir}/use/sample_${paddedId}.obj`;
 
                 console.log(`🎯 正在加载 ${method} 样本 ${sampleId}（hold & use）:`,
                     modelPathHold, modelPathUse);
