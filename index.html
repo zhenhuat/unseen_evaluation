@@ -204,12 +204,10 @@
             background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
         }
 
-        .method-card.CsMr_unseen,
         .method-card.CsMr_unseen {
             border-color: #f39c12;
         }
 
-        .method-card.CsMr_unseen.selected,
         .method-card.CsMr_unseen.selected {
             background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
         }
@@ -235,7 +233,6 @@
             color: #2ecc71;
         }
 
-        .method-card.CsMr_unseen .method-title,
         .method-card.CsMr_unseen .method-title {
             color: #f39c12;
         }
@@ -665,7 +662,7 @@
 
         // 目录映射（当方法名与磁盘目录不一致时使用）
         const dirMap = {
-            CsMr_unseen: 'CsMr_unseen'
+            // 移除映射，直接使用 CsMr_unseen 目录
         };
 
         // 生成随机样本ID
@@ -932,7 +929,7 @@
                     this.scene.remove(this.currentModel);
                 }
                 
-                // 创建方法颜色（从全局 methodColors 中查找，支持 CsMr_unseen -> CsMr_unseen 映射）
+                // 创建方法颜色（从全局 methodColors 中查找，支持 CsMr_unseen -> sns 映射）
                 const colorHex = (typeof methodColors !== 'undefined' && methodColors[this.method]) ? methodColors[this.method] : '#888888';
                 let methodColor = parseInt(colorHex.replace('#', '0x'));
                 
