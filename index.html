@@ -651,8 +651,9 @@
         let renderers = {};
         let controls = {};
 
-        // 方法配置
-        const methods = ['affordpose', 'grabnet', 'ragg', 'CsMr_unseen'];
+    // 方法配置
+    // 顺序已调整为: affordpose, CsMr_unseen, grabnet, ragg
+    const methods = ['affordpose', 'CsMr_unseen', 'grabnet', 'ragg'];
         const methodColors = {
             affordpose: '#e74c3c',
             grabnet: '#3498db',
